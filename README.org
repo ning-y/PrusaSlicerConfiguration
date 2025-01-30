@@ -1,0 +1,17 @@
+#+title: PrusaSlicerConfiguration
+
+* Quickstart
+
+File > Export > Export Config bundle...
+
+* Pre-commit hook
+
+The pre-commit hook ensures that the configuration does not include information about the physical printer e.g. a /populated/ ~printhost_apikey~ field.
+
+This pre-commit hook is recorded in a non-standard subdirectory, ~.githooks/~.
+This ensures that the pre-commit hook itself is committed as part of the repository, because the default behavior is to keep it strictly client-side and outside the repository.
+Therefore, to enable this pre-commit hook, configure git to use this non-standard subdirectory,
+
+#+begin_example bash
+git config --local core.hooksPath .githooks/
+#+end_example
